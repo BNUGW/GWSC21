@@ -1,7 +1,7 @@
 function sigVec = hwgenlcsig(dataX,snr,f0,f1,phi0)
 % Generate a linear chirp signal
 % S = HWGENLCSIG(X,SNR,F0,F1,P)
-% Generates a sinusoidal signal S. X is the vector of
+% Generates a linear chirp signal S. X is the vector of
 % time stamps at which the samples of the signal are to be computed. SNR is
 % the matched filtering signal-to-noise ratio of S. (F0,F1) and P is the 
 % frequency and phase of the linear chirp signal respectively.

@@ -15,7 +15,7 @@ timeVec = 0:samplIntrvl:1.0;
 nSamples = length(timeVec);
 
 % Generate the signal
-sigVec = hwgenfmsig(timeVec,A,f0,f1,b);
+sigVec = hwgenfmsinsig(timeVec,A,f0,f1,b);
 
 %Plot the signal 
 figure;

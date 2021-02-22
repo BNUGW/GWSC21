@@ -43,15 +43,34 @@ fftSig = fftSig(1:kNyq);
 figure;
 plot(posFreq,abs(fftSig));
 
-%Plot a spectrogram
+%% Plot a spectrogram
 %----------------
-winLen = 0.2;%sec
-ovrlp = 0.1;%sec
+f0 = 200;
+tau = 0.1;
+phi0 = pi;
+ta = 0.2;
+L = 1.4;
+sampFreq = 1024/1;
+nSamples = 2048/2;
+timeVec = (0:(nSamples-1))/sampFreq;
+
+% Generate signal
+sigVec = hwgenedsinsig(timeVec,A,f0,tau,phi0,ta,L);
+
+winLen = 1/64; % perc
+ovrlp = winLen/2; % perc
 %Convert to integer number of samples 
-winLenSmpls = floor(winLen*samplFreq);
-ovrlpSmpls = floor(ovrlp*samplFreq);
-[S,F,T]=spectrogram(sigVec,winLenSmpls,ovrlpSmpls,[],samplFreq);
+winLenSmpls = floor(winLen*nSamples);
+ovrlpSmpls = floor(ovrlp*nSamples);
+[S,F,T]=spectrogram(sigVec,winLenSmpls,ovrlpSmpls,[],sampFreq);
+
+% Plot
 figure;
+subplot(2,1,1);
+plot(timeVec,sigVec);title('l6lab - the exponentially damped sinusoid');
+
+subplot(2,1,2);
 imagesc(T,F,abs(S)); axis xy;
 xlabel('Time (sec)');
 ylabel('Frequency (Hz)');
+saveas(gcf,'l6lab_hwgenedsinsig','png')

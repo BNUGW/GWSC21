@@ -41,15 +41,29 @@ fftSig = fftSig(1:kNyq);
 figure;
 plot(posFreq,abs(fftSig));
 
-%Plot a spectrogram
+%% Plot a spectrogram
 %----------------
-winLen = 0.2;%sec
-ovrlp = 0.1;%sec
+sampFreq = 1024/4;
+nSamples = 2048/8;
+timeVec = (0:(nSamples-1))/sampFreq;
+
+% Generate signal
+sigVec = hwgensfmsinsig(timeVec,A,f0,f1,ta);
+
+winLen = 1/8; % perc
+ovrlp = winLen/2; % perc
 %Convert to integer number of samples 
-winLenSmpls = floor(winLen*samplFreq);
-ovrlpSmpls = floor(ovrlp*samplFreq);
-[S,F,T]=spectrogram(sigVec,winLenSmpls,ovrlpSmpls,[],samplFreq);
+winLenSmpls = floor(winLen*nSamples);
+ovrlpSmpls = floor(ovrlp*nSamples);
+[S,F,T]=spectrogram(sigVec,winLenSmpls,ovrlpSmpls,[],sampFreq);
+
+% Plot
 figure;
+subplot(2,1,1);
+plot(timeVec,sigVec);title('l6lab - the step FM sinusoid signal');
+
+subplot(2,1,2);
 imagesc(T,F,abs(S)); axis xy;
 xlabel('Time (sec)');
 ylabel('Frequency (Hz)');
+saveas(gcf,'l6lab_hwgensfmsinsig','png')

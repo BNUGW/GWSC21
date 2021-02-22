@@ -4,6 +4,7 @@ A = 10;
 f0 = 50;
 phi0 = pi;
 % Instantaneous frequency after 1 sec is 
+MaxFreq = f0
 samplFreq = 5 * f0;
 samplIntrvl = 1/samplFreq;
 

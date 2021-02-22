@@ -1,4 +1,4 @@
-function sigVec = hwgenfmsig(dataX,snr,f0,f1,b)
+function sigVec = hwgenfmsinsig(dataX,snr,f0,f1,b)
 % Generate a frequency modulated (FM) sinusoid signal
 % S = HWGENFMSIG(X,SNR,F0,F1,B)
 % Generates a FM sinusoid signal S. X is the vector of

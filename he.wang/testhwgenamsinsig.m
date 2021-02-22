@@ -1,11 +1,12 @@
-%% Plot the sinusoidal signal
+%% Plot the amplitude modulated (AM) sinusoid signal
 % Signal parameters
 A = 10;
-f0 = 50;
+f0 = 60;
+f1 = 3;
 phi0 = pi;
 % Instantaneous frequency after 1 sec is 
-MaxFreq = f0
-samplFreq = 5 * f0;
+maxFreq = f0;
+samplFreq = 5*maxFreq;
 samplIntrvl = 1/samplFreq;
 
 % Time samples
@@ -14,7 +15,7 @@ timeVec = 0:samplIntrvl:1.0;
 nSamples = length(timeVec);
 
 % Generate the signal
-sigVec = hwgensinsig(timeVec,A,f0,phi0);
+sigVec = hwgenamsinsig(timeVec,A,f0,f1,phi0);
 
 %Plot the signal 
 figure;

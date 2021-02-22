@@ -1,11 +1,14 @@
-%% Plot the sinusoidal signal
+%% Plot the exponentially damped sinusoid
 % Signal parameters
 A = 10;
-f0 = 50;
+f0 = 20;
+tau = 0.1;
 phi0 = pi;
+ta = 0.2;
+L = 0.4;
 % Instantaneous frequency after 1 sec is 
-MaxFreq = f0
-samplFreq = 5 * f0;
+MaxFreq = f0;
+samplFreq = 5*MaxFreq;
 samplIntrvl = 1/samplFreq;
 
 % Time samples
@@ -14,7 +17,7 @@ timeVec = 0:samplIntrvl:1.0;
 nSamples = length(timeVec);
 
 % Generate the signal
-sigVec = hwgensinsig(timeVec,A,f0,phi0);
+sigVec = hwgenedsinsig(timeVec,A,f0,tau,phi0,ta,L);
 
 %Plot the signal 
 figure;

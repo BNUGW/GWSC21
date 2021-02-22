@@ -1,4 +1,4 @@
-function sigVec = hwgenamsig(dataX,snr,f0,f1,phi0)
+function sigVec = hwgenamsinsig(dataX,snr,f0,f1,phi0)
 % Generate an amplitude modulated (AM) sinusoid
 % S = HWGENAMSIG(X,SNR,F0,F1,P)
 % Generates an AM sinusoid signal S. X is the vector of

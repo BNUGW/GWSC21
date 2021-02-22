@@ -1,12 +1,14 @@
-%% Plot the amplitude modulated (AM) sinusoid signal
+%% Plot the linear transient chirp signal
 % Signal parameters
 A = 10;
-f0 = 5;
+f0 = 50;
 f1 = 30;
 phi0 = pi;
+ta = 0.2;
+L = 0.4;
 % Instantaneous frequency after 1 sec is 
-maxFreq = max(f0/pi/2, f1); %?
-samplFreq = 5*maxFreq;
+MaxFreq = f0+2*f1
+samplFreq = 5*MaxFreq;
 samplIntrvl = 1/samplFreq;
 
 % Time samples
@@ -15,7 +17,7 @@ timeVec = 0:samplIntrvl:1.0;
 nSamples = length(timeVec);
 
 % Generate the signal
-sigVec = hwgenamsig(timeVec,A,f0,f1,phi0);
+sigVec = hwgenltcsig(timeVec,A,f0,f1,phi0,ta,L);
 
 %Plot the signal 
 figure;

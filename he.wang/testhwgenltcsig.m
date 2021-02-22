@@ -7,7 +7,8 @@ phi0 = pi;
 ta = 0.2;
 L = 0.4;
 % Instantaneous frequency after 1 sec is 
-samplFreq = 5*(f0+2*f1);
+MaxFreq = f0+2*f1
+samplFreq = 5*MaxFreq;
 samplIntrvl = 1/samplFreq;
 
 % Time samples

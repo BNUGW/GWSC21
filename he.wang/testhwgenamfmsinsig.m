@@ -1,9 +1,10 @@
 %% Plot the AM-FM sinusoid signal
 % Signal parameters
 A = 10;
-f0 = 5;
-f1 = 30;
-b = 2;
+f0 = 50;
+f1 = 3;
+f2 = 1;
+b = 20;
 % Instantaneous frequency after 1 sec is 
 maxFreq = f0;
 samplFreq = 5*maxFreq;
@@ -15,7 +16,7 @@ timeVec = 0:samplIntrvl:1.0;
 nSamples = length(timeVec);
 
 % Generate the signal
-sigVec = hwgenamfmsinsig(timeVec,A,f0,f1,b);
+sigVec = hwgenamfmsinsig(timeVec,A,f0,f1,f2,b);
 
 %Plot the signal 
 figure;

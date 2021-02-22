@@ -3,7 +3,7 @@
 A = 10;
 f0 = 50;
 f1 = 5;
-b = -20;
+b = 20;
 % Instantaneous frequency after 1 sec is 
 maxFreq = f0;
 samplFreq = 5*maxFreq;

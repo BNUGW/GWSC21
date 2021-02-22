@@ -1,11 +1,11 @@
 %% Plot the amplitude modulated (AM) sinusoid signal
 % Signal parameters
 A = 10;
-f0 = 5;
-f1 = 30;
+f0 = 60;
+f1 = 3;
 phi0 = pi;
 % Instantaneous frequency after 1 sec is 
-maxFreq = max(f0/pi/2, f1); %?
+maxFreq = f0;
 samplFreq = 5*maxFreq;
 samplIntrvl = 1/samplFreq;
 

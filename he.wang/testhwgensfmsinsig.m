@@ -5,8 +5,9 @@ f0 = 50;
 f1 = 5;
 ta = 0.3;
 % Instantaneous frequency after 1 sec is 
-maxFreq = f0+f1;
-samplFreq = 5*maxFreq;
+MaxFreq = f0+f1;
+samplFreq = 5*MaxFreq;
+HalfFreq = 1/2 * MaxFreq;
 samplIntrvl = 1/samplFreq;
 
 % Time samples
@@ -20,6 +21,8 @@ sigVec = hwgensfmsinsig(timeVec,A,f0,f1,ta);
 %Plot the signal 
 figure;
 plot(timeVec,sigVec,'Marker','.','MarkerSize',24);
+hold;
+plot(0:(1/HalfFreq):1.0,hwgensfmsinsig(0:(1/HalfFreq):1.0,A,f0,f1,ta),'Marker','o','MarkerSize',14);
 
 %Plot the periodogram
 %--------------

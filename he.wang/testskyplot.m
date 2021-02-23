@@ -12,10 +12,10 @@ fc = @(x,y) formulafc(x,y);
 figure;
 subplot(2,1,1);
 skyplot(phiVec,thetaVec,fp);
-title('F_+');
+title('F_+');colorbar;
 axis equal;
 
 subplot(2,1,2);
 skyplot(phiVec,thetaVec,fc);
-title('F_x');
+title('F_x');colorbar;
 axis equal;

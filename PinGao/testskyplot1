@@ -1,1 +1,11 @@
+%% Test harness for FORMULAFP and SKYPLOT
+%Azimuthal angle
+phiVec = 0:0.1:(2*pi);
+%Polar angle
+thetaVec = 0:0.1:pi;
 
+%Function handle: F+ from formula
+fc = @(x,y) formulafc(x,y);
+
+skyplot(phiVec,thetaVec,fc);
+axis equal;

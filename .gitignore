@@ -1,3 +1,5 @@
 *.m~
 *.gif
 .DS_Store
+MDC/MDCkey.json
+NOISE/sigparams.json

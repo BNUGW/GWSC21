@@ -30,7 +30,7 @@ psi = 2*pi /3; % 0~2*pi;
 fPlus = formulafp(phi,theta)*cos(2*psi) - formulafc(phi,theta)*sin(2*psi);
 fCross = -formulafp(phi,theta)*sin(2*psi) - formulafc(phi,theta)*cos(2*psi);
 
-% Generate signal
+% Generate signal (detector response not considerd)
 sigVec = fPlus * hp + fCross * hc;
 
 % Plot the signal

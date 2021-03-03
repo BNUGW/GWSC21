@@ -68,7 +68,7 @@ sigVec = snr*sigVec/sqrt(normSigSqrd);
 nH0Data = 1000;
 llrH0 = zeros(1,nH0Data);
 for lp = 1:nH0Data
-    noiseVec = statgaussnoisegen(nSamples,[f(:),psdPosFreq(:)],100,sampFreq);
+    noiseVec = statgaussnoisegen(nSamples,[f(:),psdPosFreq(:)],10,sampFreq);
     llrH0(lp) = innerprodpsd(noiseVec,sigVec,sampFreq,psdPosFreq);
 end
 %Obtain LLR for multiple data (=signal+noise) realizations

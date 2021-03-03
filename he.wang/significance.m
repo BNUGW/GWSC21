@@ -28,7 +28,7 @@ GLRT3 = glrtqcsig(d3,psdPosFreq,[a1,a2,a3],fs);
 
 nH0data = 10000;
 llrH0 = zeros(1,nH0data);
-for i = 1:nH0data
+parfor i = 1:nH0data
     noiseVec = statgaussnoisegen(nSamples,[f(:),psdPosFreq(:)],100,fs);
     llrH0(i) = glrtqcsig(noiseVec,psdPosFreq,[a1,a2,a3],fs);
 end

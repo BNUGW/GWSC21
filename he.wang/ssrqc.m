@@ -6,10 +6,17 @@ function ssrVal = ssrqc(x,params)
 phaseVec = x(1)*params.dataX + x(2)*params.dataXSq + x(3)*params.dataXCb;
 qc = sin(2*pi*phaseVec);
 % qc = qc/norm(qc);
-qc = qc/innerprodpsd(qc,qc,params.sampFreq,params.psdPosFreq);
+% 
+% qc = qc/innerprodpsd(qc,qc,params.sampFreq,params.psdPosFreq);
+% 
+[qc,~]=normsig4psd(qc,params.sampFreq,params.psdPosFreq,1);
 %We do not need the normalization factor, just the need template vector
 
 
 %Compute fitness (Calculate inner product of data with template qc£©
 % ssrVal = -(params.dataY*qc')^2;
-ssrVal = - innerprodpsd(params.dataY,qc,params.sampFreq,params.psdPosFreq)^2;
+% 
+% ssrVal = - innerprodpsd(params.dataY,qc,params.sampFreq,params.psdPosFreq)^2;
+% 
+inPrd = innerprodpsd(params.dataY,qc,params.sampFreq,params.psdPosFreq);
+ssrVal = -(inPrd)^2;

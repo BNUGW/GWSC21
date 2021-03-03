@@ -1,6 +1,5 @@
 
-clear
-
+clear; clc; close all;
 addpath ./SDMBIGDAT19/CODES/
 
 %% Minimize the fitness function CRCBQCFITFUNC using PSO
@@ -78,7 +77,7 @@ for lpruns = 1:nRuns
     plot(dataX,outStruct.allRunsOutput(lpruns).estSig,'Color',[51,255,153]/255,'LineWidth',4.0);
 end
 plot(dataX,outStruct.bestSig,'Color',[76,153,0]/255,'LineWidth',2.0);
-legend('noise+signal','signal','estSig1','estSig2','estSig3','estSig4','estSig5','estSig6','estSig7','estSig8','BestSig')
+legend('noise+signal','signal','estSig1','estSig2','estSig3','estSig4','estSig5','estSig6','estSig7','estSig8','BestSig');
 disp(['Estimated parameters: a1=',num2str(outStruct.bestQcCoefs(1)),...
                              '; a2=',num2str(outStruct.bestQcCoefs(2)),...
                              '; a3=',num2str(outStruct.bestQcCoefs(3))]);

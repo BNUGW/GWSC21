@@ -69,13 +69,21 @@ for lpruns = 1:nRuns
     outResults.allRunsOutput(lpruns).fitVal = fitVal(lpruns);
     [~,qcCoefs] = fHandle(outStruct(lpruns).bestLocation);
     outResults.allRunsOutput(lpruns).qcCoefs = qcCoefs;
+    
 %     estSig = crcbgenqcsig(inParams.dataX,1,qcCoefs);
 %     estAmp = inParams.dataY*estSig(:);
-    phaseVec = qcCoefs(1)*inParams.dataX + qcCoefs(2)*inParams.dataX.^2 + qcCoefs(3)*inParams.dataX.^3;
-    sigVec = sin(2*pi*phaseVec);
-    estSig = sigVec/sqrt(innerprodpsd(sigVec,sigVec,inParams.sampFreq,inParams.psdPosFreq));
-    estAmp = innerprodpsd(inParams.dataY,estSig,inParams.sampFreq,inParams.psdPosFreq);
+
+% My version
+%     phaseVec = qcCoefs(1)*inParams.dataX + qcCoefs(2)*inParams.dataX.^2 + qcCoefs(3)*inParams.dataX.^3;
+%     sigVec = sin(2*pi*phaseVec);
+%     estSig = sigVec/sqrt(innerprodpsd(sigVec,sigVec,inParams.sampFreq,inParams.psdPosFreq));
+%     estAmp = innerprodpsd(inParams.dataY,estSig,inParams.sampFreq,inParams.psdPosFreq);
     
+% Prof. verison
+    estSig = crcbgenqcsig(inParams.dataX,1,qcCoefs);
+    [estSig,~]=normsig4psd(estSig,inParams.sampFreq,inParams.psdPosFreq,1);
+    estAmp = innerprodpsd(inParams.dataY, estSig, inParams.sampFreq, inParams.psdPosFreq);  
+
     estSig = estAmp*estSig;
     outResults.allRunsOutput(lpruns).estSig = estSig;
     outResults.allRunsOutput(lpruns).totalFuncEvals = outStruct(lpruns).totalFuncEvals;

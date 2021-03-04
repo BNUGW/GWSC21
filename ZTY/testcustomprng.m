@@ -33,7 +33,7 @@ ylabel('PSD');
 
 fltrOrdr = 500;
 b = fir2(fltrOrdr,f/(f_sampl/2),1./sqrt(psd));
-whittened_data = (1/sqrt(f_sampl))*fftfilt(b,data_tot);
+whittened_data = fftfilt(b,data_tot);
 plot(t,data_tot,t,whittened_data)
 
 kNyq = floor(n_sampl/2)+1;
@@ -46,7 +46,7 @@ fft_whittened_data = fft_whittened_data(1:kNyq);
 plot(posFreq,abs(fft_data_tot),posFreq,abs(fft_whittened_data))
 % Plot a spectrogram 
 %----------------
-winLen = 0.2;%sec
+winLen = 0.3;%sec
 ovrlp = 0.1;%sec
 %Convert to integer number of samples 
 winLenSmpls = floor(winLen*f_sampl);

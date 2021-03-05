@@ -48,7 +48,7 @@ normSigSqrd = innerprodpsd(sigVec,sigVec,Fs,psdPosFreq);
 % Normalize signal to specified SNR
 dataVec = snr*sigVec/sqrt(normSigSqrd);
 % Data (=signal+noise) realizations
-noiseVec = statgaussnoisegen(nSamples,[f(:),psdPosFreq(:)],100,Fs);
+noiseVec = statgaussnoisegen(nSamples,[f(:),psdPosFreq(:)],10,Fs);
 % Add normalized signal
 dataY = noiseVec + dataVec;
 

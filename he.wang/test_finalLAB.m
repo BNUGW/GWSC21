@@ -38,9 +38,6 @@ kNyq = floor(nSamples/2)+1;
 posFreq = (0:(kNyq-1))*Fs/nSamples;
 psdPosFreq = interp1(f,pxxSmth,posFreq);
 
-% Number of independent PSO runs
-nRuns = 8;
-
 % Plot PSDs for the noise and noise + signal.
 figure;
 hold on;
@@ -51,6 +48,9 @@ plot(f,pxxY);
 xlabel('Frequency (Hz)');
 ylabel('PSD');
 legend('noise', 'noise (smoth)', 'noise + signal');
+
+% Number of independent PSO runs
+nRuns = 8;
 
 %% PSO
 % Input parameters for CRCBQCHRPPSO
@@ -72,12 +72,12 @@ outStruct = crcbqcpsopsd(inParams, struct('maxSteps', 2000), nRuns);
 figure;
 hold on;
 plot(t,dataY,'.');
-% plot(t,dataVec);
+
 for lpruns = 1:nRuns
     plot(t,outStruct.allRunsOutput(lpruns).estSig,'Color',[51,255,153]/255,'LineWidth',4.0);
 end
 plot(t,outStruct.bestSig,'Color',[76,153,0]/255,'LineWidth',2.0);
-legend('noise+signal','signal','estSig1','estSig2','estSig3','estSig4','estSig5','estSig6','estSig7','estSig8','BestSig');
+legend('analysisData','estSig1','estSig2','estSig3','estSig4','estSig5','estSig6','estSig7','estSig8','BestSig');
 disp(['Estimated parameters: a1=',num2str(outStruct.bestQcCoefs(1)),...
                              '; a2=',num2str(outStruct.bestQcCoefs(2)),...
                              '; a3=',num2str(outStruct.bestQcCoefs(3))]);

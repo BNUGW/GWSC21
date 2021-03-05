@@ -24,5 +24,6 @@ negFStrt = 1-mod(nSamples,2);
 psdVec4Norm = [psdVals,psdVals((kNyq-negFStrt):-1:2)];
 
 dataLen = sampFreq*nSamples;
+
 innProd = (1/dataLen)*(fftX./psdVec4Norm)*fftY';
 innProd = real(innProd);

@@ -25,7 +25,7 @@ data_tot = testData(:,2);
 f_sampl = (n_sampl - 1)/t(end);
 %0-5s is pure noise
 noise = data_tot(1:floor(5*f_sampl+1));
-[psd,f]=pwelch(noise, 256,[],[],f_sampl);
+[psd,f]=pwelch(noise, 2048,[],[],f_sampl);
 figure;
 plot(f,psd);
 xlabel('Frequency (Hz)');

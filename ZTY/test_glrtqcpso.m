@@ -42,7 +42,7 @@ in_params = struct( 'rmin',         [1,1,1],        ...
                     'dataY',        dataVec         ...
                    );
               
-pso_params = struct('maxSteps',1000);
+pso_params = struct('maxSteps',2000);
 
 nRuns = 8;
 
@@ -51,19 +51,9 @@ O = glrtqcpso(in_params,pso_params,nRuns);
 %% plot results
 figure
 hold on
-plot(timeVec,dataVec,'.')
-plot(timeVec,dataVec-noiseVec)
-plot(timeVec,estSig)
+plot(timeVec,dataVec,'.','MarkerSize',12)
+plot(timeVec,dataVec-noiseVec,'LineWidth',3)
+plot(timeVec,O.bestSig,'LineWidth',3)
 legend('data','signal','bestSig')
 xlabel('time (s)')
-
-
-% 
-% estSig = crcbgenqcsig(timeVec,1,O.bestQcCoefs);
-% [templateVec,~] = normsig4psd(estSig,sampFreq,psdPosFreq,1);
-% estAmp = innerprodpsd(dataVec,templateVec,sampFreq,psdPosFreq);
-% [estSig,~]=normsig4psd(sig4data,sampFreq,psdPosFreq,estAmp);
-
-
-
-
+hold off

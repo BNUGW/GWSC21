@@ -1,6 +1,6 @@
 # GWSC21
 
-[![GitHub license](https://img.shields.io/github/license/BNUGW/GWSC21)](https://github.com/BNUGW/GWSC21/blob/main/LICENSE) ![BNU](https://shields.io/badge/Beijing%20Normal%20University-BNU-informational)
+[![GitHub license](https://img.shields.io/github/license/BNUGW/GWSC21)](https://github.com/BNUGW/GWSC21/blob/main/LICENSE) [![BNU](https://shields.io/badge/Beijing%20Normal%20University-BNU-informational)](https://www.bnu.edu.cn/)
 
 Codes for 2021 Gravitational Wave Data Analysis School in China (Soumya D. Mohanty)
 

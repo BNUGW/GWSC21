@@ -59,7 +59,7 @@ end
 %parallel computing toolbox is not available.
 parfor lpruns = 1:nRuns
     %Reset random number generator for each worker
-    rng(lpruns);
+%     rng(lpruns);
     outStruct(lpruns)=crcbpso(fHandle,nDim,psoParams);
 end
 

@@ -1,0 +1,3 @@
+[submodule "he.wang/PSO_python_demo"]
+	path = he.wang/PSO_python_demo
+	url = https://github.com/iphysresearch/PSO_python_demo.git
